@@ -1,7 +1,7 @@
 name: 'Test Report for Pull Requests'
 on:
   workflow_run:
-    workflows: ['gradle-pr']                     # runs after CI workflow
+    workflows: ['Gradle Test for Pull Requests']                     # runs after CI workflow
     types:
       - completed
 permissions:
