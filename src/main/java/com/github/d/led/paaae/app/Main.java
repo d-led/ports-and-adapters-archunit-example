@@ -8,9 +8,18 @@ import com.github.d.led.paaae.app.ports.driving.ForCalculatingInterest;
 import java.time.Period;
 
 public class Main {
+    ForGettingInterestRates fixedInterestRate =
+            new FixedMonthlyInterestRate(0.01);
+    // replace ForCalculatingInterest with SimpleInterestCalculator
+    // to see the ArchUnit test fail
+    ForCalculatingInterest interestCalculator =
+            new SimpleInterestCalculator(fixedInterestRate);
+
     public static void main(String[] args) {
-        ForGettingInterestRates fixedInterestRate = new FixedMonthlyInterestRate(0.01);
-        ForCalculatingInterest interestCalculator = new SimpleInterestCalculator(fixedInterestRate);
+        new Main().run();
+    }
+
+    private void run() {
         System.out.println(
                 interestCalculator.interestFromNow(42, Period.ofMonths(12))
         );
