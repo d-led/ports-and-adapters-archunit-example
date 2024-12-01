@@ -12,7 +12,7 @@ public class Main {
             new FixedMonthlyInterestRate(0.01);
     // replace ForCalculatingInterest with SimpleInterestCalculator
     // to see the ArchUnit test fail
-    final ForCalculatingInterest interestCalculator =
+    final SimpleInterestCalculator interestCalculator =
             new SimpleInterestCalculator(fixedInterestRate);
 
     public static void main(String[] args) {
