@@ -15,7 +15,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
 public class PortsAndAdaptersTest {
     @ArchTest
     public static final ArchRule adapters_are_outside_the_app =
-            // replace noClasses() with classes() to see the test fails
+            // replace noClasses() with classes() to see the test fail
             noClasses().that().resideInAPackage("..adapters..")
                     .should().resideInAPackage("..app..");
 
