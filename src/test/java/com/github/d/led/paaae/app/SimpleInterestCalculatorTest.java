@@ -1,6 +1,5 @@
 package com.github.d.led.paaae.app;
 
-import com.github.d.led.paaae.adapters.driving.SimpleInterestCalculator;
 import org.junit.jupiter.api.Test;
 
 import java.time.Period;

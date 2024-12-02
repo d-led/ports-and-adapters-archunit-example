@@ -20,17 +20,24 @@ public class PortsAndAdaptersTest {
                     .should().resideInAPackage("..app..");
 
     @ArchTest
-    public static final ArchRule configurator_fields_should_not_be_concrete =
-            noFields().that()
-                    .areDeclaredInClassesThat().resideInAPackage("..app..")
-                    .should()
-                    .haveRawType(ofConcreteAdapter());
+    public static final ArchRule drivers_are_outside_the_app =
+            // replace noClasses() with classes() to see the test fail
+            noClasses().that().resideInAPackage("..drivers..")
+                    .should().resideInAPackage("..app..");
 
-    static DescribedPredicate<JavaClass> ofConcreteAdapter() {
-        return new DescribedPredicate<>("that is a concrete adapter") {
+    @ArchTest
+    public static final ArchRule drivers_should_only_talk_to_the_port_interfaces =
+            fields().that()
+                    .areDeclaredInClassesThat().resideInAPackage("..drivers..")
+                    .should()
+                    .haveRawType(ofAPort());
+
+    static DescribedPredicate<JavaClass> ofAPort() {
+        return new DescribedPredicate<>("that is a port") {
             @Override
             public boolean test(final JavaClass input) {
-                return input.getFullName().contains(".adapters.");
+                final var classFullName = input.getFullName();
+                return classFullName.contains(".ports.");
             }
         };
     }

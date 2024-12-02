@@ -1,4 +1,4 @@
-package com.github.d.led.paaae.adapters.driving;
+package com.github.d.led.paaae.app;
 
 import com.github.d.led.paaae.app.ports.driven.ForGettingInterestRates;
 import com.github.d.led.paaae.app.ports.driving.ForCalculatingInterest;

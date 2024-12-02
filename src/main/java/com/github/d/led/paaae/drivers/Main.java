@@ -1,7 +1,7 @@
-package com.github.d.led.paaae.app;
+package com.github.d.led.paaae.drivers;
 
 import com.github.d.led.paaae.adapters.driven.FixedMonthlyInterestRate;
-import com.github.d.led.paaae.adapters.driving.SimpleInterestCalculator;
+import com.github.d.led.paaae.app.SimpleInterestCalculator;
 import com.github.d.led.paaae.app.ports.driven.ForGettingInterestRates;
 import com.github.d.led.paaae.app.ports.driving.ForCalculatingInterest;
 
